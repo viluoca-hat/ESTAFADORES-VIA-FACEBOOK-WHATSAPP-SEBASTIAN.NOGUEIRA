@@ -1,24 +1,23 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>🔴 CyberForensic - Ataque de Phishing con Esteganografía</title>
-    <meta name="description" content="Reporte forense completo sobre ataque de phishing con esteganografía en imágenes JPEG vía WhatsApp. Perfil fraudulento: Sebastian Nogueira. CVE-2023-41064.">
-    <meta name="keywords" content="phishing, esteganografia, WhatsApp, iPhone, iOS, seguridad, forense, OSINT, CVE-2023-41064">
-    <meta name="author" content="Cyber Forensic Team">
-    
+    <meta name="description" content="Reporte forense completo sobre ataque de phishing con esteganografía en imágenes JPEG vía WhatsApp. Perfil fraudulento: Sebastian Nogueira. CVE-2023-41064." />
+    <meta name="keywords" content="phishing, esteganografia, WhatsApp, iPhone, iOS, seguridad, forense, OSINT, CVE-2023-41064" />
+    <meta name="author" content="Cyber Forensic Team" />
+
     <!-- Open Graph -->
-    <meta property="og:title" content="🔴 CyberForensic - Ataque de Phishing con Esteganografía">
-    <meta property="og:description" content="Investigación forense de ataque dirigido a usuarios de iPhone vía WhatsApp. Perfil fraudulento: SEBASTIAN.NOGUEIRA.5">
-    <meta property="og:type" content="website">
-    
+    <meta property="og:title" content="🔴 CyberForensic - Ataque de Phishing con Esteganografía" />
+    <meta property="og:description" content="Investigación forense de ataque dirigido a usuarios de iPhone vía WhatsApp. Perfil fraudulento: SEBASTIAN.NOGUEIRA.5" />
+    <meta property="og:type" content="website" />
+
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🔴 CyberForensic - Ataque de Phishing">
-    <meta name="twitter:description" content="Análisis forense de ataque con esteganografía en imágenes JPEG vía WhatsApp">
-    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="🔴 CyberForensic - Ataque de Phishing" />
+    <meta name="twitter:description" content="Análisis forense de ataque con esteganografía en imágenes JPEG vía WhatsApp" />
+
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -26,14 +25,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0a0a;
             color: #e0e0e0;
             line-height: 1.6;
         }
-        
+
         /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar {
             width: 10px;
@@ -48,14 +47,14 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #ff6666;
         }
-        
+
         /* ===== CONTAINER ===== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         /* ===== BANNER ===== */
         .banner {
             position: relative;
@@ -72,7 +71,7 @@
             justify-content: center;
             padding: 20px;
         }
-        
+
         .banner-content {
             display: flex;
             flex-direction: column;
@@ -81,7 +80,7 @@
             width: 100%;
             padding: 30px 20px;
         }
-        
+
         .banner-profile {
             display: flex;
             flex-direction: column;
@@ -89,7 +88,7 @@
             justify-content: center;
             width: 100%;
         }
-        
+
         .profile-image-container {
             width: 220px;
             height: 220px;
@@ -104,26 +103,26 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .profile-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-        
+
         .profile-image-container .fallback-text {
             color: #ff3333;
             font-size: 1.2rem;
             text-align: center;
             padding: 10px;
         }
-        
+
         .banner-text {
             text-align: center;
             width: 100%;
         }
-        
+
         .banner-text .alert-badge {
             display: inline-block;
             background: #ff0000;
@@ -137,12 +136,12 @@
             animation: pulse 1.5s ease-in-out infinite;
             margin-bottom: 12px;
         }
-        
+
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.7; transform: scale(1.05); }
         }
-        
+
         .banner-text h1 {
             font-size: 2.8rem;
             font-weight: 800;
@@ -151,13 +150,13 @@
             letter-spacing: 1px;
             margin-bottom: 5px;
         }
-        
+
         .banner-text .subtitle {
             font-size: 1.2rem;
             color: #ff9999;
             font-weight: 300;
         }
-        
+
         .banner-text .phone-number {
             display: inline-block;
             background: #1a0505;
@@ -171,33 +170,33 @@
             letter-spacing: 1px;
             font-family: 'Courier New', monospace;
         }
-        
+
         .banner-text .phone-number .country {
             color: #ff8888;
             font-weight: 300;
         }
-        
+
         .banner-text .phone-number .number {
             color: #ff3333;
         }
-        
+
         .banner-text .profile-name {
             font-size: 1.1rem;
             color: #ff8888;
             margin-top: 8px;
         }
-        
+
         .banner-text .profile-name a {
             color: #ff6666;
             text-decoration: none;
             font-weight: 600;
         }
-        
+
         .banner-text .profile-name a:hover {
             color: #ff9999;
             text-decoration: underline;
         }
-        
+
         /* ===== CARDS ===== */
         .card {
             background: #141414;
@@ -207,27 +206,27 @@
             border: 1px solid #2a2a2a;
             transition: all 0.3s ease;
         }
-        
+
         .card:hover {
             border-color: #ff3333;
             box-shadow: 0 0 30px rgba(255, 0, 0, 0.05);
         }
-        
+
         .card-danger {
             border-left: 5px solid #ff0000;
             background: #1a0505;
         }
-        
+
         .card-warning {
             border-left: 5px solid #ffaa00;
             background: #1a1400;
         }
-        
+
         .card-success {
             border-left: 5px solid #00cc44;
             background: #001a08;
         }
-        
+
         .card h2 {
             font-size: 1.6rem;
             margin-bottom: 15px;
@@ -236,33 +235,33 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .card h2 .emoji {
             font-size: 1.8rem;
         }
-        
+
         .card h3 {
             font-size: 1.2rem;
             color: #ff6666;
             margin: 20px 0 10px 0;
         }
-        
+
         .card h3:first-child {
             margin-top: 0;
         }
-        
+
         /* ===== TABLAS ===== */
         .table-wrap {
             overflow-x: auto;
             margin: 15px 0;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
         }
-        
+
         table th {
             background: #2a0000;
             color: #ff6666;
@@ -270,16 +269,16 @@
             text-align: left;
             border-bottom: 2px solid #ff3333;
         }
-        
+
         table td {
             padding: 10px 15px;
             border-bottom: 1px solid #222;
         }
-        
+
         table tr:hover td {
             background: #1a1a1a;
         }
-        
+
         /* ===== CÓDIGO ===== */
         .code-block {
             background: #0d0d0d;
@@ -292,19 +291,19 @@
             margin: 10px 0;
             color: #00ff88;
         }
-        
+
         .code-block .comment {
             color: #666;
         }
-        
+
         .code-block .danger {
             color: #ff4444;
         }
-        
+
         .code-block .success {
             color: #44ff88;
         }
-        
+
         /* ===== GRID DE IMÁGENES ===== */
         .image-grid {
             display: grid;
@@ -312,7 +311,7 @@
             gap: 20px;
             margin: 20px 0;
         }
-        
+
         .image-grid .img-card {
             background: #0d0d0d;
             border-radius: 10px;
@@ -320,18 +319,18 @@
             border: 1px solid #2a2a2a;
             transition: transform 0.3s ease;
         }
-        
+
         .image-grid .img-card:hover {
             transform: scale(1.02);
             border-color: #ff3333;
         }
-        
+
         .image-grid .img-card img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
+
         .image-grid .img-card .caption {
             padding: 12px 15px;
             background: #0a0a0a;
@@ -340,7 +339,7 @@
             text-align: center;
             border-top: 1px solid #1a1a1a;
         }
-        
+
         .image-grid .img-card .caption .badge {
             display: inline-block;
             padding: 2px 12px;
@@ -349,22 +348,22 @@
             font-weight: 700;
             margin-top: 5px;
         }
-        
+
         .badge-danger {
             background: #ff0000;
             color: #fff;
         }
-        
+
         .badge-warning {
             background: #ffaa00;
             color: #000;
         }
-        
+
         .badge-success {
             background: #00cc44;
             color: #000;
         }
-        
+
         /* ===== BOTÓN DE DESCARGA ===== */
         .download-section {
             text-align: center;
@@ -374,7 +373,7 @@
             border-radius: 15px;
             border: 2px dashed #ff3333;
         }
-        
+
         .download-section .btn-download {
             display: inline-block;
             background: #ff0000;
@@ -389,28 +388,28 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .download-section .btn-download:hover {
             transform: scale(1.05);
             box-shadow: 0 0 60px rgba(255, 0, 0, 0.5);
         }
-        
+
         .download-section .btn-download .icon {
             font-size: 1.5rem;
             margin-right: 12px;
         }
-        
+
         .download-section .download-info {
             color: #888;
             margin-top: 12px;
             font-size: 0.9rem;
         }
-        
+
         .download-section .download-info .highlight {
             color: #ff6666;
             font-weight: 600;
         }
-        
+
         /* ===== GRID DE PERFIL ===== */
         .profile-grid {
             display: grid;
@@ -418,7 +417,7 @@
             gap: 15px;
             margin: 15px 0;
         }
-        
+
         .profile-item {
             background: #0d0d0d;
             padding: 15px;
@@ -426,18 +425,18 @@
             border: 1px solid #1a1a1a;
             text-align: center;
         }
-        
+
         .profile-item .platform {
             font-weight: 700;
             color: #ff6666;
         }
-        
+
         .profile-item .url {
             font-size: 0.8rem;
             color: #888;
             word-break: break-all;
         }
-        
+
         /* ===== STATUS ===== */
         .status-critical {
             display: inline-block;
@@ -449,7 +448,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
         }
-        
+
         .status-medium {
             display: inline-block;
             background: #ffaa00;
@@ -460,7 +459,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
         }
-        
+
         .status-low {
             display: inline-block;
             background: #00cc44;
@@ -471,7 +470,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
         }
-        
+
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
@@ -481,95 +480,95 @@
             color: #555;
             font-size: 0.9rem;
         }
-        
+
         .footer a {
             color: #ff6666;
             text-decoration: none;
         }
-        
+
         .footer a:hover {
             color: #ff9999;
             text-decoration: underline;
         }
-        
+
         .glitch {
             color: #ff3333;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
         }
-        
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
             }
-            
+
             .banner {
                 min-height: auto;
                 padding: 15px;
             }
-            
+
             .banner-text h1 {
                 font-size: 1.8rem;
             }
-            
+
             .banner-text .subtitle {
                 font-size: 0.9rem;
             }
-            
+
             .banner-text .phone-number {
                 font-size: 1rem;
                 padding: 8px 20px;
             }
-            
+
             .profile-image-container {
                 width: 150px;
                 height: 150px;
             }
-            
+
             .card {
                 padding: 15px;
             }
-            
+
             .card h2 {
                 font-size: 1.3rem;
             }
-            
+
             .image-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .profile-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .download-section .btn-download {
                 font-size: 1rem;
                 padding: 14px 30px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .banner-text h1 {
                 font-size: 1.4rem;
             }
-            
+
             .profile-image-container {
                 width: 120px;
                 height: 120px;
             }
-            
+
             .banner-text .phone-number {
                 font-size: 0.85rem;
                 padding: 6px 15px;
                 word-break: break-all;
             }
         }
-        
+
         /* ===== ANIMACIONES ===== */
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -581,28 +580,29 @@
 <div class="container">
 
     <!-- ============================================================ -->
-    <!-- BANNER CON FOTO DE CRISTIAN (PERFIL DEL AGRESOR)              -->
+    <!-- BANNER CON FOTO DEL SOSPECHOSO (cristian.jpg)                 -->
+    <!-- PERFIL: SEBASTIAN.NOGUEIRA.5 (Facebook)                      -->
     <!-- ============================================================ -->
     <div class="banner fade-in">
         <div class="banner-content">
             <div class="banner-profile">
-                <!-- Foto de perfil de Cristian (el atacante) -->
+                <!-- Foto de perfil del sospechoso: cristian.jpg -->
                 <div class="profile-image-container">
-                    <img src="cristian.png" alt="Cristian - Perfil fraudulento de Facebook" 
+                    <img src="cristian.jpg" alt="Cristian - Perfil fraudulento de Facebook" 
                          onerror="this.parentElement.innerHTML='<div class=fallback-text>👤<br>Cristian<br>Perfil Falso</div>'">
                 </div>
-                
+
                 <div class="banner-text">
                     <span class="alert-badge">🔴 ALERTA DE SEGURIDAD</span>
                     <h1>CyberForensic Report</h1>
                     <div class="subtitle">Análisis de ataque de phishing con esteganografía en imágenes JPEG vía WhatsApp</div>
-                    
+
                     <!-- Número de WhatsApp de Argentina -->
                     <div class="phone-number">
                         <span class="country">🇦🇷 +54</span>
                         <span class="number">9 375 6446868</span>
                     </div>
-                    
+
                     <div class="profile-name">
                         🎭 Perfil Fraudulento: <a href="https://www.facebook.com/sebastian.nogueira.5" target="_blank">SEBASTIAN.NOGUEIRA.5</a>
                     </div>
@@ -617,12 +617,13 @@
     <div class="card card-danger fade-in">
         <h2><span class="emoji">🚨</span> Resumen Ejecutivo</h2>
         <p>Se ha detectado un <strong>ataque de phishing dirigido</strong> a través de la aplicación de mensajería WhatsApp, utilizando un perfil fraudulento en Facebook que se hace pasar por <strong>Sebastián Nogueira</strong>. El atacante envió dos imágenes en formato <strong>JPEG</strong> que contenían un <strong>payload malicioso</strong> oculto mediante técnicas de <strong>esteganografía</strong>.</p>
-        <br>
+        <br />
         <p><strong>Nivel de Riesgo:</strong> <span class="status-critical">CRÍTICO</span></p>
         <p><strong>Dispositivo Afectado:</strong> iPhone 11 (iOS 16.6.1 o anterior)</p>
         <p><strong>Fecha del Incidente:</strong> 28 de agosto de 2026</p>
         <p><strong>Vulnerabilidad Explotada:</strong> <span class="glitch">CVE-2023-41064</span> - Image I/O en iOS</p>
         <p><strong>Número del Agresor:</strong> <span class="glitch">+54 9 375 6446868</span></p>
+        <p><strong>Perfil Facebook:</strong> <a href="https://www.facebook.com/sebastian.nogueira.5" target="_blank" style="color:#ff6666;">SEBASTIAN.NOGUEIRA.5</a></p>
     </div>
 
     <!-- ============================================================ -->
@@ -630,7 +631,7 @@
     <!-- ============================================================ -->
     <div class="card card-danger fade-in">
         <h2><span class="emoji">🎭</span> Perfil del Agresor</h2>
-        
+
         <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 15px;">
             <div style="background: #1a0505; padding: 12px 25px; border-radius: 10px; border: 1px solid #ff3333;">
                 <strong>📱 WhatsApp:</strong> <span style="color:#ff4444;">+54 9 375 6446868</span>
@@ -642,7 +643,7 @@
                 <strong>🐘 Mastodon:</strong> <a href="https://mstdn.social/@sebastian.nogueira.5" style="color:#ff6666;" target="_blank">@sebastian.nogueira.5</a>
             </div>
         </div>
-        
+
         <div class="table-wrap">
             <table>
                 <thead>
@@ -681,7 +682,7 @@
                 </tbody>
             </table>
         </div>
-        
+
         <h3>🌍 Países Asociados</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0;">
             <span style="background: #2a0000; padding: 5px 15px; border-radius: 20px; border: 1px solid #ff3333;">🇷🇺 Rusia</span>
@@ -691,7 +692,7 @@
             <span style="background: #2a0000; padding: 5px 15px; border-radius: 20px; border: 1px solid #ff3333;">🇵🇱 Polonia</span>
             <span style="background: #1a0505; padding: 5px 15px; border-radius: 20px; border: 2px solid #ff0000;">🇦🇷 Argentina (+54 9 375 6446868)</span>
         </div>
-        
+
         <h3>🏷️ Intereses Detectados (OSINT)</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
             <span style="background: #1a1a1a; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem;">social</span>
@@ -710,9 +711,9 @@
     <!-- ============================================================ -->
     <div class="card card-danger fade-in">
         <h2><span class="emoji">🔬</span> Metodología del Ataque</h2>
-        
+
         <p>El atacante utiliza una <strong>técnica avanzada de 6 pasos</strong> que combina esteganografía, cifrado y explotación de vulnerabilidades en iOS:</p>
-        
+
         <div style="background: #0d0d0d; border-radius: 8px; padding: 20px; margin: 15px 0; border: 1px solid #2a2a2a;">
             <div style="display: flex; flex-direction: column; gap: 12px;">
                 <div style="display: flex; align-items: center; gap: 15px; background: #1a0505; padding: 10px 15px; border-radius: 6px; border-left: 4px solid #ff0000;">
@@ -741,7 +742,7 @@
                 </div>
             </div>
         </div>
-        
+
         <h3>🛡️ Vulnerabilidades Explotadas</h3>
         <div class="table-wrap">
             <table>
@@ -779,15 +780,15 @@
     <div class="card fade-in">
         <h2><span class="emoji">📸</span> Imágenes Manipuladas (Payload Oculto)</h2>
         <p>Las siguientes imágenes fueron enviadas por el perfil fraudulento. Contienen <strong>payload malicioso</strong> oculto en el marcador <span class="glitch">FF FE</span> (comentario JPEG).</p>
-        
+
         <div class="image-grid">
             <div class="img-card">
                 <img src="1.jpeg" alt="Imagen 1 - Payload oculto" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%231a0000%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%22 y=%22150%22 fill=%22%23ff3333%22 font-size=%2220%22 font-family=%22monospace%22%3E1.jpeg%3C/text%3E%3C/svg%3E'">
                 <div class="caption">
                     <strong>1.jpeg</strong>
-                    <br>
+                    <br />
                     <span class="badge badge-danger">PAYLOAD OCULTO</span>
-                    <br>
+                    <br />
                     <span style="font-size:0.8rem;">163 KB | Marcador FF FE detectado</span>
                 </div>
             </div>
@@ -795,25 +796,25 @@
                 <img src="2.jpeg" alt="Imagen 2 - Payload oculto" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%231a0000%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%22 y=%22150%22 fill=%22%23ff3333%22 font-size=%2220%22 font-family=%22monospace%22%3E2.jpeg%3C/text%3E%3C/svg%3E'">
                 <div class="caption">
                     <strong>2.jpeg</strong>
-                    <br>
+                    <br />
                     <span class="badge badge-danger">PAYLOAD OCULTO</span>
-                    <br>
+                    <br />
                     <span style="font-size:0.8rem;">232 KB | Datos extraños entre FF FE y FF D9</span>
                 </div>
             </div>
         </div>
-        
+
         <h3>📊 Análisis de Firmas Detectadas</h3>
         <div class="code-block">
-            <span class="comment">// Firmas de WhatsApp encontradas en las imágenes</span><br>
-            <span class="danger">WA</span>   <span class="comment">// WhatsApp</span><br>
-            <span class="danger">WatsA</span> <span class="comment">// WhatsApp (ofuscado)</span><br>
-            <span class="danger">wapr</span>  <span class="comment">// WhatsApp</span><br>
-            <span class="danger">WA2;</span>  <span class="comment">// WhatsApp (ofuscado)</span><br>
-            <span class="danger">wAP9:</span> <span class="comment">// WhatsApp (ofuscado)</span><br>
-            <br>
-            <span class="comment">// Marcadores JPEG sospechosos</span><br>
-            <span class="danger">FF FE</span>  <span class="comment">// Comentario JPEG (payload oculto)</span><br>
+            <span class="comment">// Firmas de WhatsApp encontradas en las imágenes</span><br />
+            <span class="danger">WA</span>   <span class="comment">// WhatsApp</span><br />
+            <span class="danger">WatsA</span> <span class="comment">// WhatsApp (ofuscado)</span><br />
+            <span class="danger">wapr</span>  <span class="comment">// WhatsApp</span><br />
+            <span class="danger">WA2;</span>  <span class="comment">// WhatsApp (ofuscado)</span><br />
+            <span class="danger">wAP9:</span> <span class="comment">// WhatsApp (ofuscado)</span><br />
+            <br />
+            <span class="comment">// Marcadores JPEG sospechosos</span><br />
+            <span class="danger">FF FE</span>  <span class="comment">// Comentario JPEG (payload oculto)</span><br />
             <span class="danger">FF D9</span>  <span class="comment">// Fin de imagen (datos extra entre marcadores)</span>
         </div>
     </div>
@@ -824,7 +825,7 @@
     <div class="card fade-in">
         <h2><span class="emoji">🔐</span> Evidencia Forense - Payloads Extraídos</h2>
         <p>Durante el análisis forense, se lograron extraer los siguientes archivos del payload oculto:</p>
-        
+
         <div class="table-wrap">
             <table>
                 <thead>
@@ -863,13 +864,13 @@
                 </tbody>
             </table>
         </div>
-        
+
         <h3>🔑 Hashes SHA-256 (Evidencia)</h3>
         <div class="code-block">
-            <span class="comment">// Hashes de los archivos incautados</span><br>
-            1b735d07eee0c3cd65efafcfd2c846da91c393a1d7a5fc1c06d0dd33783d9a24  <span class="danger">1.jpeg</span><br>
-            26ab086f6fb8bb513740e85367a2d29865264f195d4ad676a371d49cc66cedd8  <span class="danger">2.jpeg</span><br>
-            7d3905931674645efa429e6297ce34135d4cfb1cf9fc50f3ae5c307ee36cd07d  <span class="danger">payload_1_real.bin</span><br>
+            <span class="comment">// Hashes de los archivos incautados</span><br />
+            1b735d07eee0c3cd65efafcfd2c846da91c393a1d7a5fc1c06d0dd33783d9a24  <span class="danger">1.jpeg</span><br />
+            26ab086f6fb8bb513740e85367a2d29865264f195d4ad676a371d49cc66cedd8  <span class="danger">2.jpeg</span><br />
+            7d3905931674645efa429e6297ce34135d4cfb1cf9fc50f3ae5c307ee36cd07d  <span class="danger">payload_1_real.bin</span><br />
             f703bd3dcae559baf277ab0f11170c6b2cf63b7b10cae2b36e8012328bb92b78  <span class="danger">payload_2_real.bin</span>
         </div>
     </div>
@@ -883,7 +884,7 @@
         </a>
         <div class="download-info">
             Contiene: <span class="highlight">1.jpeg</span> · <span class="highlight">2.jpeg</span> · <span class="highlight">extracted_1.zip</span> · <span class="highlight">extracted_2.zip</span> · <span class="highlight">payload_1_real.bin</span> · <span class="highlight">payload_2_real.bin</span>
-            <br>
+            <br />
             <span style="color:#666; font-size:0.8rem;">Tamaño total: ~620 KB | SHA256 disponible en el reporte</span>
         </div>
     </div>
@@ -893,7 +894,7 @@
     <!-- ============================================================ -->
     <div class="card card-warning fade-in">
         <h2><span class="emoji">🛡️</span> Recomendaciones de Seguridad</h2>
-        
+
         <h3>📱 Para Usuarios de iPhone</h3>
         <div style="background: #0d0d0d; padding: 15px; border-radius: 8px; margin: 10px 0;">
             <div style="display: flex; align-items: center; gap: 10px; padding: 5px 0;">
@@ -917,7 +918,7 @@
                 <span><strong>ACTIVAR</strong> autenticación en dos pasos</span>
             </div>
         </div>
-        
+
         <h3>🚨 Si Has Recibido Imágenes Sospechosas</h3>
         <div style="background: #0d0d0d; padding: 15px; border-radius: 8px; margin: 10px 0;">
             <div style="display: flex; align-items: center; gap: 10px; padding: 5px 0;">
@@ -944,23 +945,23 @@
     <!-- ============================================================ -->
     <div class="card fade-in">
         <h2><span class="emoji">📞</span> Contactos de Emergencia</h2>
-        
+
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
             <div style="background: #0d0d0d; padding: 15px; border-radius: 8px; border: 1px solid #1a1a1a;">
                 <h3 style="color: #ff4444; margin-top: 0;">🇦🇷 Argentina</h3>
-                <p><strong>Unidad Fiscal de Ciberdelincuencia</strong><br>(011) 5071-0000</p>
-                <p><strong>Policía Federal - División Ciberdelitos</strong><br>0800-666-5082</p>
-                <p><strong>Línea de Denuncias</strong><br>134</p>
+                <p><strong>Unidad Fiscal de Ciberdelincuencia</strong><br />(011) 5071-0000</p>
+                <p><strong>Policía Federal - División Ciberdelitos</strong><br />0800-666-5082</p>
+                <p><strong>Línea de Denuncias</strong><br />134</p>
             </div>
             <div style="background: #0d0d0d; padding: 15px; border-radius: 8px; border: 1px solid #1a1a1a;">
                 <h3 style="color: #ffaa00; margin-top: 0;">🌐 Internacional</h3>
-                <p><strong>INTERPOL - Ciberdelincuencia</strong><br><a href="https://www.interpol.int" style="color:#ff6666;" target="_blank">interpol.int</a></p>
-                <p><strong>Europol - EC3</strong><br><a href="https://www.europol.europa.eu" style="color:#ff6666;" target="_blank">europol.europa.eu</a></p>
+                <p><strong>INTERPOL - Ciberdelincuencia</strong><br /><a href="https://www.interpol.int" style="color:#ff6666;" target="_blank">interpol.int</a></p>
+                <p><strong>Europol - EC3</strong><br /><a href="https://www.europol.europa.eu" style="color:#ff6666;" target="_blank">europol.europa.eu</a></p>
             </div>
             <div style="background: #0d0d0d; padding: 15px; border-radius: 8px; border: 1px solid #1a1a1a;">
                 <h3 style="color: #00cc44; margin-top: 0;">🔐 Recursos</h3>
-                <p><strong>CVE-2023-41064</strong><br><a href="https://support.apple.com/en-us/HT213843" style="color:#ff6666;" target="_blank">Apple Security</a></p>
-                <p><strong>MITRE ATT&CK</strong><br><a href="https://attack.mitre.org" style="color:#ff6666;" target="_blank">attack.mitre.org</a></p>
+                <p><strong>CVE-2023-41064</strong><br /><a href="https://support.apple.com/en-us/HT213843" style="color:#ff6666;" target="_blank">Apple Security</a></p>
+                <p><strong>MITRE ATT&CK</strong><br /><a href="https://attack.mitre.org" style="color:#ff6666;" target="_blank">attack.mitre.org</a></p>
             </div>
         </div>
     </div>
@@ -971,7 +972,7 @@
     <div class="card card-danger fade-in">
         <h2><span class="emoji">🌐</span> Código de Shaming Público</h2>
         <p>Comparte esta alerta en redes sociales para proteger a más personas:</p>
-        
+
         <div class="code-block" style="font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; line-height: 1.8; color: #fff;">
             <div style="background: #ff0000; color: white; padding: 20px; border-radius: 10px; margin: 10px 0;">
                 <h1 style="color: white; font-size: 1.8rem;">🚨 ALERTA DE SEGURIDAD 🚨</h1>
@@ -981,7 +982,7 @@
                 <p><strong>Método:</strong> Envía imágenes con payload oculto para robar datos sensibles</p>
                 <p><strong>Riesgo:</strong> 🔴 CRÍTICO - Usuarios de iPhone iOS 16.6.1 o anterior</p>
                 <p>⚠️ <strong>NO ABRAN</strong> imágenes de este perfil</p>
-                <hr style="border-color: #ff6666;">
+                <hr style="border-color: #ff6666;" />
                 <p style="font-size: 0.8rem;">Más información: <a href="https://cyberforensicteam.github.io" style="color:#fff; text-decoration:underline;">CyberForensic Report</a></p>
             </div>
         </div>
@@ -1009,12 +1010,12 @@
         <p>© 2026 <strong>Cyber Forensic Team</strong> | Este reporte es de carácter informativo y educativo</p>
         <p>Licencia: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0</a></p>
         <p style="margin-top: 10px; font-size: 0.8rem; color: #333;">
-            <strong>Última Actualización:</strong> 28 de agosto de 2026 | 
-            <strong>Versión:</strong> 1.0 | 
+            <strong>Última Actualización:</strong> 28 de agosto de 2026 |
+            <strong>Versión:</strong> 2.0 |
             <strong>Estado:</strong> 🔴 ACTIVE INVESTIGATION
         </p>
         <p style="margin-top: 5px; font-size: 0.8rem; color: #333;">
-            📱 Contacto: <span style="color:#ff4444;">+54 9 375 6446868</span> | 
+            📱 Contacto: <span style="color:#ff4444;">+54 9 375 6446868</span> |
             <a href="https://github.com/CyberForensicTeam/CyberForensic-WhatsApp-Phishing" style="color:#ff6666;">GitHub</a>
         </p>
     </div>
@@ -1023,4 +1024,3 @@
 
 </body>
 </html>
-```
